@@ -95,65 +95,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
             },
           ),
         ),
-      ),
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).cardColor,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Theme.of(context).iconTheme.color,
-        type: BottomNavigationBarType.fixed,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-
-          // Handle navigation for each index
-          if (index == 0) {
-            // Navigate to HomeScreen and remove the previous screen from the stack
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HomeScreen(), // Navigate directly to HomeScreen
-              ),
-                  (Route<dynamic> route) => false, // Remove all previous routes
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SelectLanguageScreen(), // Already on this screen
-              ),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const BookmarkScreen(), // Navigate to BookmarksScreen
-              ),
-            );
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article),
-            label: 'Articles',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
-            label: 'Bookmarks',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dark_mode),
-            label: 'Dark Mode',
-          ),
-        ],
-      ),
+      )
     );
   }
 }
